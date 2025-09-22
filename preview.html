@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍳 Recipe Finder</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .main-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .recipe-count {
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .search-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            margin-bottom: 1rem;
+        }
+        
+        .search-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .search-select {
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+        }
+        
+        .search-button {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .recipe-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .recipe-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .recipe-content {
+            padding: 1.5rem;
+        }
+        
+        .recipe-title {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .recipe-meta {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .ingredient-tag {
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0.2rem;
+            display: inline-block;
+        }
+        
+        .ingredients-section {
+            margin: 1rem 0;
+        }
+        
+        .view-details {
+            background: #f8f9fa;
+            color: #2c3e50;
+            border: 1px solid #dee2e6;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-header">
+        <h1>🍳 Recipe Finder</h1>
+        <p>Discover amazing recipes from around the world</p>
+    </div>
+    
+    <div class="recipe-count">
+        6 recipes available
+    </div>
+    
+    <div class="search-container">
+        <h3>🔍 Find Your Perfect Recipe</h3>
+        <input type="text" class="search-input" placeholder="e.g., chicken pasta, dessert, Italian...">
+        <div class="search-controls">
+            <select class="search-select">
+                <option>All</option>
+                <option>Name</option>
+                <option>Ingredient</option>
+                <option>Category</option>
+                <option>Area</option>
+            </select>
+            <input type="range" min="3" max="12" value="6" style="flex: 1;">
+            <button class="search-button">🔍 Search</button>
+        </div>
+    </div>
+    
+    <div class="recipes-grid">
+
+        <div class="recipe-card">
+            <img src="https://www.themealdb.com/images/media/meals/vqpwrv1511723001.jpg" class="recipe-image" onerror="this.src='https://via.placeholder.com/300x200?text=🍽️'">
+            <div class="recipe-content">
+                <div class="recipe-title">Chelsea Buns</div>
+                <div class="recipe-meta">
+                    🍽️ Dessert 
+                    🌍 British
+                </div>
+                <div class="ingredients-section">
+                    <strong>🥘 Ingredients:</strong><br>
+                    <span class="ingredient-tag">White Flour: 500g</span><span class="ingredient-tag">Salt: 1 tsp</span><span class="ingredient-tag">Yeast: 7g</span><span class="ingredient-tag">Milk: 300ml</span><span class="ingredient-tag">+9 more</span>
+                </div>
+                <button class="view-details">👁️ View Details</button>
+            </div>
+        </div>
+        
+        <div class="recipe-card">
+            <img src="https://www.themealdb.com/images/media/meals/n3xxd91598732796.jpg" class="recipe-image" onerror="this.src='https://via.placeholder.com/300x200?text=🍽️'">
+            <div class="recipe-content">
+                <div class="recipe-title">Tamiya</div>
+                <div class="recipe-meta">
+                    🍽️ Vegetarian 
+                    🌍 Egyptian
+                </div>
+                <div class="ingredients-section">
+                    <strong>🥘 Ingredients:</strong><br>
+                    <span class="ingredient-tag">Broad Beans: 3 cups</span><span class="ingredient-tag">Spring Onions: 6</span><span class="ingredient-tag">Garlic Clove: 4</span><span class="ingredient-tag">Parsley: 1/4 cup</span><span class="ingredient-tag">+5 more</span>
+                </div>
+                <button class="view-details">👁️ View Details</button>
+            </div>
+        </div>
+        
+        <div class="recipe-card">
+            <img src="https://www.themealdb.com/images/media/meals/wwuqvt1487345467.jpg" class="recipe-image" onerror="this.src='https://via.placeholder.com/300x200?text=🍽️'">
+            <div class="recipe-content">
+                <div class="recipe-title">Osso Buco alla Milanese</div>
+                <div class="recipe-meta">
+                    🍽️ Miscellaneous 
+                    🌍 Italian
+                </div>
+                <div class="ingredients-section">
+                    <strong>🥘 Ingredients:</strong><br>
+                    <span class="ingredient-tag">Veal: 4 meaty shanks</span><span class="ingredient-tag">Flour: ½ cup</span><span class="ingredient-tag">Olive Oil: 2 tablespoons</span><span class="ingredient-tag">Butter: 3 tablespoons</span><span class="ingredient-tag">+14 more</span>
+                </div>
+                <button class="view-details">👁️ View Details</button>
+            </div>
+        </div>
+        
+        <div class="recipe-card">
+            <img src="https://www.themealdb.com/images/media/meals/1549542877.jpg" class="recipe-image" onerror="this.src='https://via.placeholder.com/300x200?text=🍽️'">
+            <div class="recipe-content">
+                <div class="recipe-title">Budino Di Ricotta</div>
+                <div class="recipe-meta">
+                    🍽️ Dessert 
+                    🌍 Italian
+                </div>
+                <div class="ingredients-section">
+                    <strong>🥘 Ingredients:</strong><br>
+                    <span class="ingredient-tag">Ricotta: 500g</span><span class="ingredient-tag">Eggs: 4 large</span><span class="ingredient-tag">Flour: 3 tbs</span><span class="ingredient-tag">Sugar: 250g</span><span class="ingredient-tag">+4 more</span>
+                </div>
+                <button class="view-details">👁️ View Details</button>
+            </div>
+        </div>
+        
+        <div class="recipe-card">
+            <img src="https://www.themealdb.com/images/media/meals/t3r3ka1560461972.jpg" class="recipe-image" onerror="this.src='https://via.placeholder.com/300x200?text=🍽️'">
+            <div class="recipe-content">
+                <div class="recipe-title">Cashew Ghoriba Biscuits</div>
+                <div class="recipe-meta">
+                    🍽️ Dessert 
+                    🌍 Tunisian
+                </div>
+                <div class="ingredients-section">
+                    <strong>🥘 Ingredients:</strong><br>
+                    <span class="ingredient-tag">Cashew Nuts: 250g</span><span class="ingredient-tag">Icing Sugar: 100g</span><span class="ingredient-tag">Egg Yolks: 2</span><span class="ingredient-tag">Orange Blossom Water: 2 tbs</span><span class="ingredient-tag">+2 more</span>
+                </div>
+                <button class="view-details">👁️ View Details</button>
+            </div>
+        </div>
+        
+        <div class="recipe-card">
+            <img src="https://www.themealdb.com/images/media/meals/1550440197.jpg" class="recipe-image" onerror="this.src='https://via.placeholder.com/300x200?text=🍽️'">
+            <div class="recipe-content">
+                <div class="recipe-title">Salmon Eggs Eggs Benedict</div>
+                <div class="recipe-meta">
+                    🍽️ Breakfast 
+                    🌍 American
+                </div>
+                <div class="ingredients-section">
+                    <strong>🥘 Ingredients:</strong><br>
+                    <span class="ingredient-tag">Eggs: 4</span><span class="ingredient-tag">White Wine Vinegar: 2 tbs</span><span class="ingredient-tag">English Muffins: 2</span><span class="ingredient-tag">Butter: To serve</span><span class="ingredient-tag">+5 more</span>
+                </div>
+                <button class="view-details">👁️ View Details</button>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
